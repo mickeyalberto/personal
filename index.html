@@ -1,89 +1,342 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Dashboard Personal</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/11.6.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/11.6.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+  <!-- NAVBAR -->
+  <nav class="bg-white shadow-md fixed top-0 w-full z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <h1 class="text-xl font-bold">MiPortafolio</h1>
+      <ul class="flex space-x-6">
+        <li><a href="#inicio" class="hover:text-blue-600 transition">Inicio</a></li>
+        <li><a href="#sobre" class="hover:text-blue-600 transition">Sobre mí</a></li>
+        <li><a href="#proyectos" class="hover:text-blue-600 transition">Proyectos</a></li>
+        <li><a href="#servicios" class="hover:text-blue-600 transition">Servicios</a></li>
+        <li><a href="#contacto" class="hover:text-blue-600 transition">Contacto</a></li>
+        <li><a href="#certificados" class="hover:text-blue-600 transition">Preparacion</a></li>
+      </ul>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+  </nav>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+<!-- SECCIÓN INICIO -->
+<section id="inicio" class="min-h-screen flex items-center justify-center pt-24 bg-gradient-to-br from-blue-100 to-white" data-aos="fade-up">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-10">
+      
+      <!-- Imagen de perfil -->
+      <div class="w-40 h-40 md:w-60 md:h-60 rounded-full overflow-hidden shadow-lg border-4 border-white">
+        <img src="./Curriculum (21).JPG" alt="Foto de perfil de Miguel Alberto" class="w-full h-full object-cover">
+      </div>
+  
+      <!-- Texto de presentación -->
+      <div class="text-center md:text-left">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Hola, soy el Ing. Miguel Alberto Cordero Ahuactzi</h2>
+        <p class="text-lg text-gray-600 mb-6">Desarrollador | Creativo | Apasionado por la tecnología y la ciberseguridad</p>
+        <a href="#contacto" class="bg-blue-600 text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition">Contáctame</a>
+      </div>
+  
+    </div>
+  </section>
+  
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+  <!-- SECCIÓN SOBRE MÍ -->
+  <section id="sobre" class="py-20 bg-white" data-aos="fade-right">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-6">Sobre mí</h2>
+      <p class="max-w-xl mx-auto">Soy un desarrollador apasionado con experiencia en crear soluciones eficientes. Me encanta trabajar con nuevas tecnologías y convertir ideas en realidad digital.</p>
+    </div>
+  </section>
+
+  <!-- SECCIÓN PROYECTOS -->
+  <section id="proyectos" class="py-20 bg-gray-100" data-aos="fade-left">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-10">Proyectos</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Proyecto 1 -->
+        <!-- Tarjeta del Proyecto -->
+<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition cursor-pointer" onclick="abrirModal('modalProyecto1')">
+    <h3 class="text-xl font-semibold mb-2">Sistema de gestión de inventario del Hotel Real de Puebla</h3>
+    <p>Haz clic para ver más detalles.</p>
+  </div>
+  
+        <!-- Proyecto 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition cursor-pointer" onclick="abrirModal('modalProyecto2')">
+          <h3 class="text-xl font-semibold mb-2">Punto de venta</h3>
+          <p>Haz clic para ver más detalles.</p>
+        </div>
+        <!-- Proyecto 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition cursor-pointer" onclick="abrirModal('modalProyecto3')">
+          <h3 class="text-xl font-semibold mb-2">Aplicacion de balance de energia</h3>
+          <p>Haz clic para ver más detalles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN SERVICIOS -->
+  <section id="servicios" class="py-20 bg-white" data-aos="fade-up">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-10">Servicios</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="p-6 border rounded-lg">
+          <img src="https://cdn-icons-png.flaticon.com/512/841/841364.png" alt="Desarrollo Web" class="mx-auto mb-4 w-16 h-16">
+          <h3 class="font-semibold text-lg">Desarrollo Web</h3>
+          <p class="text-sm text-gray-600 mt-2">Sitios rápidos, modernos y responsivos.</p>
+        </div>
+        
+        <div class="p-6 border rounded-lg">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Android_logo_2019_%28stacked%29.svg/1031px-Android_logo_2019_%28stacked%29.svg.png" alt="Apps Android" class="mx-auto mb-4 w-16 h-16">
+          <h3 class="font-semibold text-lg">Apps Android</h3>
+          <p class="text-sm text-gray-600 mt-2">Aplicaciones nativas en Java/Kotlin.</p>
+        </div>
+  
+        <div class="p-6 border rounded-lg">
+          <img src="https://cdn-icons-png.flaticon.com/512/1048/1048314.png" alt="Automatización IoT" class="mx-auto mb-4 w-16 h-16">
+          <h3 class="font-semibold text-lg">Automatización IoT</h3>
+          <p class="text-sm text-gray-600 mt-2">Arduino, sensores, proyectos inteligentes.</p>
+        </div>
+  
+        <div class="p-6 border rounded-lg">
+          <img src="compu.jpg" alt="Software de escritorio" class="mx-auto mb-4 w-16 h-16">
+          <h3 class="font-semibold text-lg">Software de escritorio</h3>
+          <p class="text-sm text-gray-600 mt-2">Java, C#, chatbots personalizados.</p>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- SECCIÓN CONTACTO -->
+  <section id="contacto" class="py-20 bg-blue-50" data-aos="fade-up">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-10">Contáctame</h2>
+      <form id="miFormulario" class="max-w-xl mx-auto space-y-4">
+        <input type="text" placeholder="Tu nombre" id="nombre" class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <input type="email" placeholder="Tu email" id="correo" class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <textarea id="mensaje" placeholder="Tu mensaje" class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+        <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">Enviar</button>
+      </form>
+    </div>
+  </section>
+  <!-- SECCIÓN CERTIFICADOS -->
+<section id="certificados" class="py-20 bg-white" data-aos="fade-up">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Certificados</h2>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        
+        <!-- Tarjeta de Certificado -->
+        <div class="bg-gradient-to-br from-blue-200 to-white shadow-lg rounded-xl p-6 hover:scale-105 transform transition duration-300">
+          <h3 class="text-xl font-semibold mb-2">Introduccion a la Ciberseguridad - Cisco</h3>
+          <p class="text-gray-700 mb-4">Emitido por Cisco Networking Academy</p>
+          <a href="./Introduction_to_Cybersecurity_certificate_alberomiguelcarrionhexada-gmail-com_8c256ea5-192c-46b0-9f76-e222be8e1641.pdf" target="_blank" class="text-blue-600 font-medium hover:underline">Ver certificado</a>
+        </div>
+  
+        <!-- Otro certificado -->
+        <div class="bg-gradient-to-br from-green-200 to-white shadow-lg rounded-xl p-6 hover:scale-105 transform transition duration-300">
+          <h3 class="text-xl font-semibold mb-2">Hacking con malware desde 0 a 100 - Creación y Explotación</h3>
+          <p class="text-gray-700 mb-4">Emitido por Udemy</p>
+          <a href="./UC-d698c12a-0722-4610-b8ea-354d615cec38.pdf" target="_blank" class="text-blue-600 font-medium hover:underline">Ver certificado</a>
+        </div>
+  
+        <!-- Otro más -->
+        <div class="bg-gradient-to-br from-purple-200 to-white shadow-lg rounded-xl p-6 hover:scale-105 transform transition duration-300">
+          <h3 class="text-xl font-semibold mb-2">Introducción a Python </h3>
+          <p class="text-gray-700 mb-4">Emitido por Santander</p>
+          <a href="./508_miguelrosalescastillo109@gmail.com.pdf" target="_blank" class="text-blue-600 font-medium hover:underline">Ver certificado</a>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  <div id="toast" class="hidden fixed top-4 right-4 bg-green-500 text-white p-4 rounded shadow transition-opacity duration-300" style="opacity: 0;">
+    <p id="toastMensaje"></p>
+  </div>
+  
+  <!-- Modal -->
+<div id="modalProyecto1" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-lg w-full max-w-3xl p-8 relative">
+      
+      <!-- Botón Cerrar -->
+      <button class="absolute top-4 right-4 text-gray-500 hover:text-black text-2xl" onclick="cerrarModal('modalProyecto1')">&times;</button>
+  
+      <!-- Contenido del Modal -->
+      <h2 class="text-2xl font-bold mb-4">Sistema de gestión de inventario del Hotel Real de Puebla</h2>
+      <p class="mb-4 text-gray-700">
+        Este sistema fue diseñado para gestionar eficientemente el inventario del Hotel Real de Puebla, permitiendo agregar, eliminar, editar productos, generar reportes en PDF, mandar correos y mantener un control de stock automatizado.
+        <br>
+        Se utilizaron tecnologias como java 21, maven, firebase y a su vez una aplicación hecha con AndroidStudio y firebase
+      </p>
+  
+      <!-- Imágenes del Proyecto -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <img src="inventario1.png" alt="Captura 1" class="rounded shadow-md">
+        <img src="inventario2.png" alt="Captura 2" class="rounded shadow-md">
+      </div>
+  
+    </div>
+  </div>
+  
+    <!-- Modal -->
+<div id="modalProyecto2" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-lg w-full max-w-3xl p-8 relative">
+    
+    <!-- Botón Cerrar -->
+    <button class="absolute top-4 right-4 text-gray-500 hover:text-black text-2xl" onclick="cerrarModal('modalProyecto2')">&times;</button>
+
+    <!-- Contenido del Modal -->
+    <h2 class="text-2xl font-bold mb-4">Sistema de punto de venta web</h2>
+    <p class="mb-4 text-gray-700">
+      Este sistema fue desarrollado en función de las necesidades del cliente, buscando ofrecer un control de stock claro y ordenado, así como un servicio remoto accesible para los usuarios.
+      <br>
+      Se utilizaron tecnologías como PHP y MySQL para el almacenamiento de datos.
+    </p>    
+
+    <!-- Imágenes del Proyecto -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <img src="pag1.png" alt="Captura 1" class="rounded shadow-md">
+      <img src="pag2.png" alt="Captura 2" class="rounded shadow-md">
+    </div>
+
+  </div>
+</div>
+
+<div id="modalProyecto3" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-lg w-full max-w-3xl p-8 relative">
+    
+    <!-- Botón Cerrar -->
+    <button class="absolute top-4 right-4 text-gray-500 hover:text-black text-2xl" onclick="cerrarModal('modalProyecto3')">&times;</button>
+
+    <!-- Contenido del Modal -->
+    <h2 class="text-2xl font-bold mb-4">Aplicación balance de energia</h2>
+    <p class="mb-4 text-gray-700">
+      Esta aplicación fue desarrollada para atender una de las principales necesidades de una estudiante de Ingeniería Química.
+      <br>
+      Se utilizaron tecnologías como Android Studio, Java y SQLite para el almacenamiento de datos.
+    </p>    
+    <!-- Imágenes del Proyecto -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <img src="app1.png" alt="Captura 1" class="rounded shadow-md">
+      <img src="app2.png" alt="Captura 2" class="rounded shadow-md">
+    </div>
+
+  </div>
+</div>
+<!-- Mensaje emergente estilo ventana -->
+<div id="mensajeExito" class="fixed top-10 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg opacity-0 scale-75 transition-all duration-500 z-50 hidden">
+  <p class="text-lg font-semibold">Enviado con éxito. Próximamente el Ing. Miguel Alberto se pondrá en contacto con usted.</p>
+</div>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-800 text-white py-6 text-center">
+    <p class="mb-4">&copy; 2025 Inge. Miguel Alberto Cordero Ahuactzi. Todos los derechos reservados.</p>
+    <div class="flex justify-center space-x-6">
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/miguelalbertocorderoahuactzi/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="w-6 h-6 inline">
+      </a>
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/share/1DqL4mKEXn/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" class="w-6 h-6 inline">
+      </a>
+      <!-- GitHub -->
+      <a href="https://github.com/miguelCorAhuactzi" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" class="w-6 h-6 inline">
+      </a>
+    </div>
+  </footer>
+  
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyAdf_0T2xogpO-rEAMYlcyEv80vr7fwjuQ",
+      authDomain: "paginapersonal-9124e.firebaseapp.com",
+      projectId: "paginapersonal-9124e",
+      storageBucket: "paginapersonal-9124e.appspot.com",
+      messagingSenderId: "112789294006",
+      appId: "1:112789294006:web:9466e4b9dd43e766dc4f17",
+      measurementId: "G-4P6T7T0FNB"
+    };
+  
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+  
+    function mostrarToast(mensaje, esError = false) {
+      const toast = document.getElementById("toast");
+      toast.textContent = mensaje;
+      toast.className = esError ? "show error" : "show";
+  
+      setTimeout(() => {
+        toast.className = toast.className.replace("show", "");
+      }, 4000);
+    }
+  
+    document.getElementById("miFormulario").addEventListener("submit", async (e) => {
+      e.preventDefault();
+  
+      const nombre = document.getElementById("nombre").value;
+      const correo = document.getElementById("correo").value;
+      const mensaje = document.getElementById("mensaje").value;
+  
+      try {
+        await addDoc(collection(db, "mensajes"), {
+          nombre: nombre,
+          correo: correo,
+          mensaje: mensaje,
+          timestamp: new Date()
+        });
+  
+        mostrarVentanaEmergente();
+        e.target.reset();
+      } catch (error) {
+        console.error("Error al guardar en Firestore:", error);
+        mostrarToast("Error al enviar: " + error.message, true);
+      }
+    });
+    function mostrarVentanaEmergente() {
+  const mensaje = document.getElementById("mensajeExito");
+  if (mensaje) {
+    mensaje.classList.remove("hidden");
+    // Mostrar con animación
+    setTimeout(() => {
+      mensaje.classList.add("opacity-100", "scale-100");
+      mensaje.classList.remove("opacity-0", "scale-75");
+    }, 10);
+
+    // Ocultar después de 6 segundos
+    setTimeout(() => {
+      mensaje.classList.remove("opacity-100", "scale-100");
+      mensaje.classList.add("opacity-0", "scale-75");
+      // Después de la animación, ocultar el div
+      setTimeout(() => {
+        mensaje.classList.add("hidden");
+      }, 500);
+    }, 6000);
+  }
+}
+
+  </script>
+  
+  <script>
+    AOS.init();
+    function abrirModal(id) {
+    document.getElementById(id).classList.remove('hidden');
+  }
+
+  function cerrarModal(id) {
+    document.getElementById(id).classList.add('hidden');
+  }
+  </script>
+</body>
 </html>
