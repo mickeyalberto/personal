@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ing. Miguel Alberto Cordero Ahuactzi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --primary-color: #0078d4;
+            --secondary-color: #f9f9f9;
+            --text-color: #333;
+            --card-hover: #eaf4ff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #eef2f3, #ffffff);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 50px auto;
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 40px 30px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+            color: var(--primary-color);
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 5px solid var(--primary-color);
+            margin-top: 20px;
+            object-fit: cover;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: #005fa3;
+        }
+
+        .content h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 8px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .consent {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--secondary-color);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.07);
+            transition: transform 0.2s ease, background 0.2s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background-color: var(--card-hover);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .card p {
+            color: #555;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .modal-content h3 {
+            color: var(--primary-color);
+            margin-top: 20px;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #888;
+        }
+
+        .close:hover {
+            color: #000;
+        }
+
+        .github-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 16px;
+            background-color: #333;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .github-link:hover {
+            background-color: #555;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .download-btn {
+                font-size: 14px;
+                padding: 10px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Ing. Miguel Alberto Cordero Ahuactzi</h1>
+        <img class="profile-img" src="Curriculum%20(21).JPG" alt="Foto de perfil">
+        <br>
+        <a class="download-btn" href="CV-Miguel_Cordero-T.I.pdf" download>📄 Descargar Currículum</a>
+    </div>
+    <div class="content">
+        <div class="section">
+            <h2>Perfil Profesional</h2>
+            <p>
+                Ingeniero con experiencia en proyectos tecnológicos, automatización, desarrollo de soluciones eficientes
+                y liderazgo en equipos multidisciplinarios. Apasionado por la innovación y la mejora continua.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Cartas de Presentación / Proyectos Realizados</h2>
+            <div class="consent">
+                <div class="card" onclick="openModal(0)">
+                    <h3>Sistema gestor de inventario(Rol Back-end)</h3>
+                    <p>Haz clic para más detalles</p>
+                </div>
+                <div class="card" onclick="openModal(1)">
+                    <h3>Carta de Presentación - Empresa ABC</h3>
+                    <p>Haz clic para más detalles</p>
+                </div>
+                <div class="card" onclick="openModal(2)">
+                    <h3>Monitoreo Remoto IoT</h3>
+                    <p>Haz clic para más detalles</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Cursos y Certificados</h2>
+            <div class="consent">
+                <div class="card" onclick="openModal(3)">
+                    <h3>Certificado en Automatización Industrial</h3>
+                    <p>Haz clic para más detalles</p>
+                </div>
+                <div class="card" onclick="openModal(4)">
+                    <h3>Curso de Desarrollo Web Full Stack</h3>
+                    <p>Haz clic para más detalles</p>
+                </div>
+                <div class="card" onclick="openModal(5)">
+                    <h3>Certificado IoT y Redes</h3>
+                    <p>Haz clic para más detalles</p>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="section">
+            <h2>Contacto</h2>
+            <p>Email: miguel.alberto@example.com</p>
+            <p>Teléfono: +52 123 456 7890</p>
+            <p>Ubicación: Tlaxcala, México</p>
+        </div>
+    </div>
+</div>
+
+<!-- Modales -->
+<div class="modal" id="modal0">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal(0)">&times;</span>
+        <img src="proyecto1.jpg" alt="Proyecto Automatización">
+        <h3>Sistema gestor de inventario(Rol Back-end)l</h3>
+        <p>Implementación de un sistema automatizado con PLCs para controlar motores y sensores en una línea de producción industrial.</p>
+        <a class="github-link" href="https://github.com/tuusuario/proyecto-automatizacion" target="_blank">Ver en GitHub</a>
+    </div>
+</div>
+
+<div class="modal" id="modal1">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal(1)">&times;</span>
+        <img src="carta-presentacion.jpg" alt="Carta de Presentación">
+        <h3>Carta de Presentación - Empresa ABC</h3>
+        <p>Documento formal dirigido a Empresa ABC, destacando habilidades técnicas, trabajo en equipo y resultados en proyectos eléctricos.</p>
+        <a class="github-link" href="https://github.com/tuusuario/carta-presentacion-abc" target="_blank">Ver en GitHub</a>
+    </div>
+</div>
+
+<div class="modal" id="modal2">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal(2)">&times;</span>
+        <img src="iot-monitor.jpg" alt="Monitoreo Remoto">
+        <h3>Monitoreo Remoto IoT</h3>
+        <p>Creación de una plataforma IoT para visualizar variables como temperatura, humedad y presión en tiempo real desde cualquier lugar.</p>
+        <a class="github-link" href="https://github.com/tuusuario/monitoreo-iot" target="_blank">Ver en GitHub</a>
+    </div>
+</div>
+<div class="modal" id="modal3">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal(3)">&times;</span>
+        <img src="certificado-automatizacion.jpg" alt="Certificado Automatización">
+        <h3>Certificado en Automatización Industrial</h3>
+        <p>Emitido por [Nombre de la Institución]. Curso enfocado en el uso de PLCs, sensores y controladores industriales.</p>
+        <a class="github-link" href="https://github.com/tuusuario/certificado-automatizacion" target="_blank">Ver Evidencia</a>
+    </div>
+</div>
+
+<div class="modal" id="modal4">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal(4)">&times;</span>
+        <img src="certificado-web.jpg" alt="Certificado Web Full Stack">
+        <h3>Curso de Desarrollo Web Full Stack</h3>
+        <p>Curso intensivo cubriendo HTML, CSS, JavaScript, Node.js y bases de datos. Proyecto final: desarrollo de una aplicación web funcional.</p>
+        <a class="github-link" href="https://github.com/tuusuario/fullstack-curso" target="_blank">Ver Proyecto</a>
+    </div>
+</div>
+
+<div class="modal" id="modal5">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal(5)">&times;</span>
+        <img src="certificado-iot.jpg" alt="Certificado IoT">
+        <h3>Certificado IoT y Redes</h3>
+        <p>Capacitación en tecnologías de Internet de las Cosas, redes de sensores, comunicación MQTT y monitoreo remoto.</p>
+        <a class="github-link" href="https://github.com/tuusuario/certificado-iot" target="_blank">Ver Documentación</a>
+    </div>
+</div>
+
+
+
+<script>
+    function openModal(index) {
+        document.getElementById("modal" + index).style.display = "block";
+    }
+
+    function closeModal(index) {
+        document.getElementById("modal" + index).style.display = "none";
+    }
+
+    // Cierra el modal si se hace clic fuera del contenido
+    window.onclick = function(event) {
+        for (let i = 0; i < 6; i++) {
+            let modal = document.getElementById("modal" + i);
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
